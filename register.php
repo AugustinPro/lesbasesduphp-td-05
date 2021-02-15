@@ -3,6 +3,7 @@
 $csvData = array_map('str_getcsv', file('assets/departments_regions_france_2016.csv'));
 // suppression de la ligne d'entête du tableau
 $deps_regions = array_slice($csvData, 1);
+$k=0;
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +24,7 @@ $deps_regions = array_slice($csvData, 1);
             transform: translateY(-50%);
         }
         body {
-            background: url(assets/img/bg-white.jpg) left center / cover no-repeat;
+            background: url(assets/img/25101.jpg) left center / cover no-repeat;
         }
     </style>
 </head>
@@ -34,6 +35,38 @@ $deps_regions = array_slice($csvData, 1);
         <div class="row justify-content-center">
             <div class="col-md-5">
                 <!-- Crééz votre formulaire ici -->
+                <form>
+                    <div class="form-group">
+                        <label for="yourName">Nom</label>
+                        <input type="text" class="form-control" id="yourName" placeholder="Ex : John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="birthday">Date de Naissance</label>
+                        <input type="date" class="form-control" id="birthday" placeholder="mm/dd/yyyy">
+                    </div>
+                    <div class="form-group">
+                        <label for="departements">Département</label>
+                        <select class="form-control" id="departements">
+                            <?php foreach($deps_regions as $show) { ?>
+                                <option value="<?php $show[0] ?>"><?php echo "$show[1]" ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="regions">Région</label>
+                        <select class="form-control" id="regions">
+                            <?php foreach($deps_regions as $show) { ?>
+                                <option value="<?php $show[3] ?>"><?php echo "$show[3]" ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div>
+                        <!-- <pre>
+                            <?php //print_r($deps_regions); ?>
+                        </pre> -->
+                    </div>
+                    <button class="btn btn-primary mx-auto d-block col-4" type="submit">ENVOYER</button>
+                </form>
             </div>
         </div>
     </div>

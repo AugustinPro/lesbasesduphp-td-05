@@ -12,9 +12,10 @@
 <body>
     <!-- votre code ici -->
     <div class="board">
-        <?php for($i=2; $i<10; $i++){ ?>
-                <?php for($j=2; $j<10; $j++){ ?>
-                    <div class="<?php echo ($i%2 == 0 && $j%2 == 0) || ($i%2 != 0 && $j%2 != 0) ? "black_tile" : "white_tile" ?>"></div>
+        <!-- $i=1 because if you start at 0 the modulo for both 0 and 1 equal 0 therefore no checkerboard ): -->
+        <?php for($i=1; $i<9; $i++){ ?>
+                <?php for($j=1; $j<9; $j++){ ?>
+                    <div class="<?php echo (($i + $j)%2 == 0) ? "black_tile" : "white_tile" ?>"></div>
                 <?php } ?>
         <?php } ?>
     </div>
