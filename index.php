@@ -10,7 +10,14 @@
 </head>
 
 <body>
-        <!-- votre code ici -->
+    <!-- votre code ici -->
+    <div class="board">
+        <?php for($i=2; $i<10; $i++){ ?>
+                <?php for($j=2; $j<10; $j++){ ?>
+                    <div class="<?php echo ($i%2 == 0 && $j%2 == 0) || ($i%2 != 0 && $j%2 != 0) ? "black_tile" : "white_tile" ?>"></div>
+                <?php } ?>
+        <?php } ?>
+    </div>
 </body>
 
 </html>
